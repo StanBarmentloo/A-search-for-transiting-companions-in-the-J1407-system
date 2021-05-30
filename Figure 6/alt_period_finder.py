@@ -125,7 +125,7 @@ def alt_period_finder(time, flux, eflux, gap_size = 20, sample_size = 30, absolu
                             except:
                                 period_format = '{0:.1g}'
                             try:
-                                print(str('{0:.3f}'.format(found_period)) +' & '+ str('{0:.3f}'.format(found_err)) +' & '+ str(int(np.min(segment_time)))+ ' & '+str(int(np.max(segment_time))) + ' \\\\')
+                                print(str(int(np.min(segment_time)))+ ' & ' +str(int(np.max(segment_time))) + ' & ' + str('{0:.3f}'.format(found_period)) +' & '+ str('{0:.3f}'.format(found_err)) +' \\\\')
                             except: 
                                 pass
                         #-----------------------------------------------------------------------------------
