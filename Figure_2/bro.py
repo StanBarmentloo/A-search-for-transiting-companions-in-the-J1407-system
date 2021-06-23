@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
-#Christiaan Dik and Stan Barmentloo 2020
+#Christiaan Dik and Stan Barmentloo 2021
 #Butcher Ringaling Offspring (BRO)
 
 import numpy as np
-import scipy.signal as signal
 from scipy.optimize import curve_fit
 from astropy.timeseries import LombScargle
-#import bootstrap
 import matplotlib.pyplot as plt
     
 def short_correct(time, flux, eflux, frequencies = 1/np.linspace(2, 10, 3000), gap_size=20, min_chunk_size = 20, max_chunk_duration=500):
@@ -42,6 +40,7 @@ def short_correct(time, flux, eflux, frequencies = 1/np.linspace(2, 10, 3000), g
                 cutoffs.append(j)
     chunk_ends.append(len(time)-1)
     #-----------------------------------------------------------------------------------
+    #Get the highest power period for each chunk, fold the chunk over this time and correct for the best fit periodic curve
     for i in range(len(chunk_beginnings)):
         if chunk_ends[i]-chunk_beginnings[i] > min_chunk_size:
             chunk_time = time[chunk_beginnings[i]:chunk_ends[i]]
@@ -55,10 +54,7 @@ def short_correct(time, flux, eflux, frequencies = 1/np.linspace(2, 10, 3000), g
             max_periods.append(max_period)
             
             time_folded = chunk_time%max_period
-            
-            
-            
-              
+         
             try:
                 means, errors, midpoints = binner(np.linspace(0, max_period, int(2*len(chunk_flux)**(1/3))), time_folded, chunk_flux, chunk_eflux)
                 popt, pcov = curve_fit(ringaling, np.array(midpoints)*2*np.pi/(max_period), means, sigma = errors, absolute_sigma = True, p0 = [1,0,0, 1, 1], maxfev = 5000)
@@ -72,7 +68,7 @@ def short_correct(time, flux, eflux, frequencies = 1/np.linspace(2, 10, 3000), g
                 except:
                     max_periods[-1] = 42
     
-    final_flux = short_corr_flux#/np.mean(short_corr_flux)
+    final_flux = short_corr_flux
     
     return final_flux, np.array(max_periods), frequencies, all_powers
 
@@ -80,9 +76,6 @@ def short_correct(time, flux, eflux, frequencies = 1/np.linspace(2, 10, 3000), g
 def ringaling(phi,*c):
     # c is a numpy array containing an odd number of coeffieicnts
     # so that c[0] + c[1]*np.sin(phi) + c[2]*np.cos(phi) + c[3]*np.sin(2*phi) + c[4]*np.cos(2*phi) + .....
-    #if (c.size%2 == 0):
-    #    print('whoa! we need an odd number of coefficients in c')
-    #    return 1
     c = np.array(c)
     npairs = (c.size-1)/2
     result = 0
