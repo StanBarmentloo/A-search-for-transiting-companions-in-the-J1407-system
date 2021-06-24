@@ -28,21 +28,6 @@ def transit_time(period):
     return period/(np.pi*a)
 
 
-
-
-#Generating noise and fake data
-def noise_generator(times, noise_type, std):
-    if noise_type == 'Gauss':
-        return np.random.randn(times.size)*std #Generating Gaussian noise with a sigma of choice
-    elif noise_type == 'Poisson':
-        pass
-        
-def fake_data_generator(times, noise):
-    data = np.ones_like(times) 
-    data += noise
-    return data
-
-
 # In[3]:
 
 
