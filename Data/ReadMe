@@ -8,8 +8,42 @@ A search for transiting companions in the J1407 (V1400 Cen) system
 ================================================================================
 ADC_Keywords: Photometry, CCD
 
+Abstract:
+  In 2007, the young star 1SWASP J140747.93-394542.6 (V1400 Cen) underwent a
+  complex series of deep eclipses over 56 days. This was attributed to the
+  transit of a ring system filling a large fraction of the Hill sphere of an
+  unseen substellar companion. Subsequent photometric monitoring has not found
+  any other deep transits from this candidate ring system, but if there are more
+  substellar companions and if they are coplanar with the potential ring system,
+  there is a chance that they will transit the star as well.
+
+  This young star is active, and the light curves show a 5% modulation in
+  amplitude with a dominant rotation period of 3.2 days due to starspots
+  rotating into and out of view. We model and remove the rotational modulation
+  of the J1407 light curve and search for additional transit signatures of
+  substellar companions orbiting around J1407.
+
+  We combine the photometry of J1407 from several observatories, spanning a
+  19 year baseline.  We remove the rotational modulation by modeling the
+  variability as a periodic signal, whose periodicity changes slowly with time
+  over several years due to the activity cycle of the star.
+
+  A transit least squares (TLS) analysis is used to search for any
+  periodic transiting signals within the cleaned light curve. We identify an
+  activity cycle of J1407 with a period of 5.4yr. A TLS search does not find
+  any plausible periodic eclipses in the light curve, from 1.2% amplitude at
+  5 days up to 1.9% at 20 days. This sensitivity is confirmed by injecting
+  artificial transits into the light curve and determining the recovery
+  fraction as a function of transit depth and orbital period. J1407 is
+  confirmed as a young active star with an activity cycle consistent with
+  a rapidly rotating solar mass star.
+
+   With the rotational modulation removed, the TLS analysis reaches down to
+   planetary mass radii for young exoplanets, ruling out transiting companions
+   with radii larger than about 1 Jupiter.
+
 Description:
-  Photometry from ground-based telescopes of the star V1400 Cen with a simple
+  Photometry from five ground-based telescopes of the star V1400 Cen with a
   model for the periodic modulation due to star spots removed. This data was
   used to search for transiting exoplanets and to characterise a multi-year
   variation in the rotational modulation, attributed to the activity cycle of
@@ -27,14 +61,14 @@ File Summary:
  FileName    Lrecl   Records    Explanations
 --------------------------------------------------------------------------------
 ReadMe         80        .  this file
-j1407.dat      33     9843  Photometry corrected for stellar activity
+j1407.dat      34     9843  Photometry corrected for stellar activity
 
 --------------------------------------------------------------------------------
 Byte-by-byte Description of file: j1407.dat
 --------------------------------------------------------------------------------
  Bytes Format Units  Label     Explanations
 --------------------------------------------------------------------------------
- 1-11   F10.5  d      MJD      [51887.35/58971.01] Epoch [Modified Julian Date]
+ 1-11   F11.5  d      MJD      [51887.35/58971.01] Epoch [Modified Julian Date]
 13-18   F6.4   ---    flux     [0.53/1.61] Normalised Uncorrected Flux
 20-25   F6.4   ---    fluxcorr [0.89/1.13] Normalised Corrected Flux
 27-32   F6.4   ---    fluxerr  [0.0/0.05] Error on Flux
