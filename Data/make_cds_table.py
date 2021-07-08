@@ -8,7 +8,7 @@ table = tablemaker.addTable("Final_Combined_Data_Accepted.csv", description="Pho
 # write table in CDS-ASCII aligned format (required)
 table.name="j1407.dat"
 column = table.get_column("MJD")
-column.set_format("F10.5")
+column.set_format("F11.5")
 column.description="Epoch [Modified Julian Date]"
 column.unit='d'
 

@@ -15,14 +15,13 @@ Description:
   variation in the rotational modulation, attributed to the activity cycle of
   the star.
 
-
 Objects:
     --------------------------------------------------------------------------
        RA   (2000)   DE    Designation(s)                          (File)
     --------------------------------------------------------------------------
     14 07 47.9 -39 45 43   V1400 Cen = 1SWASP J140747.93-394542.6  (j1407.dat)
     --------------------------------------------------------------------------
-    
+
 File Summary:
 --------------------------------------------------------------------------------
  FileName    Lrecl   Records    Explanations
@@ -30,25 +29,21 @@ File Summary:
 ReadMe         80        .  this file
 j1407.dat      33     9843  Photometry corrected for stellar activity
 
-
 --------------------------------------------------------------------------------
 Byte-by-byte Description of file: j1407.dat
 --------------------------------------------------------------------------------
  Bytes Format Units  Label     Explanations
 --------------------------------------------------------------------------------
- 1-10   F10.5  d      MJD      [51887.35/58971.01] Epoch [Modified Julian Date]
-12-17   F6.4   ---    flux     [0.53/1.61] Normalised Uncorrected Flux
-19-24   F6.4   ---    fluxcorr [0.89/1.13] Normalised Corrected Flux
-26-31   F6.4   ---    fluxerr  [0.0/0.05] Error on Flux
-   33   A1     ---    telnum   Telescope number
+ 1-11   F10.5  d      MJD      [51887.35/58971.01] Epoch [Modified Julian Date]
+13-18   F6.4   ---    flux     [0.53/1.61] Normalised Uncorrected Flux
+20-25   F6.4   ---    fluxcorr [0.89/1.13] Normalised Corrected Flux
+27-32   F6.4   ---    fluxerr  [0.0/0.05] Error on Flux
+   34   A1     ---    telnum   Telescope number
 
 --------------------------------------------------------------------------------
 
 Note in telnum:
   1 = ASAS, 2 = ASAS-SN, 3 = KELT, 4 = PROMPT, 5 = ROAD
 
-Acknowledgements:
-
-References:
 ================================================================================
 (End)           M.A. Kenworthy [Leiden]                              08-Jul-2021
